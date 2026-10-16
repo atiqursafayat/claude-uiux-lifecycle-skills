@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ux-skills",
+  "owner": { "name": "atiqursafayat" },
+  "metadata": {
+    "description": "Project-independent UX skills for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "ux-lifecycle",
+      "source": "./plugins/ux-lifecycle",
+      "description": "UX lifecycle orchestrator (research, journeys, lifecycles, flows, screens, quality gates, testing, release) with vetted design specialists loaded on demand.",
+      "category": "design"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "ux-lifecycle",
+  "version": "0.1.0",
+  "description": "UX lifecycle orchestrator for any project: user research, journeys and status lifecycles, flows and IA, feature briefs and metrics, screen design, quality gates (heuristics, WCAG 2.2, states, copy, performance), browser validation and release. Specialist design skills are bundled and loaded on demand.",
+  "author": { "name": "atiqursafayat" },
+  "license": "MIT",
+  "keywords": ["ux", "user-research", "journey-map", "user-flow", "accessibility", "design-system", "usability"]
+}
