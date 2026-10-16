@@ -3,13 +3,13 @@
 Goal: be clear about whose problem this is, how they cope today, and how we'll know it's solved. Then decide how much research it deserves.
 
 **Specialists:**
-- `specialists/strategize/SKILL.md` for problem framing and hypotheses
-- `specialists/investigate/SKILL.md` for research methods, guides, surveys and synthesis
-- `specialists/personas/persona-methodology.md` before writing personas
+- specialist `strategize` for problem framing and hypotheses
+- specialist `investigate` for research methods, guides, surveys and synthesis
+- specialist `personas` before writing personas
 
 ## Steps
 
-1. **Frame the problem** in the feature brief (`templates/feature-brief.md`, top half):
+1. **Frame the problem** in the feature brief (`uxl new feature-brief --name <feature>`, top half):
    - Job story: *When* \<situation>, *I want to* \<motivation>, *so I can* \<outcome>. Write one per affected role.
    - The current workaround, and what it costs the user.
    - Evidence so far, labelled as data, anecdote or assumption.
@@ -24,7 +24,7 @@ Goal: be clear about whose problem this is, how they cope today, and how we'll k
    | Need to size or prioritise across many users | Run a short survey (5–10 questions) after the interviews, never instead of them |
    | Existing product with data | Mine analytics, support tickets and logs first. They're free and real. |
 
-3. **Interview guide.** Use `templates/interview-guide.md`. Rules:
+3. **Interview guide.** Run `uxl new interview-guide --name <topic>`. Rules:
    - Ask about past behaviour ("Tell me about the last time you…"), not hypotheticals ("Would you use…").
    - Don't pitch or show the solution.
    - Use open questions, follow up with "why?", and stay quiet long enough for people to keep talking.

@@ -3,13 +3,13 @@
 Goal: specify, step by step, how a user completes one task, including everything that can go wrong, before drawing screens.
 
 **Specialists:**
-- `specialists/journey/SKILL.md` for task flows and decision points
-- `specialists/fortify/SKILL.md` for unhappy paths and state inventories
-- `specialists/organize/SKILL.md` for information architecture
+- specialist `journey` for task flows and decision points
+- specialist `fortify` for unhappy paths and state inventories
+- specialist `organize` for information architecture
 
 ## A. Flow spec (one per task)
 
-Use `templates/flow-spec.md`.
+Create it with `uxl new flow-spec --name <feature>`.
 
 1. **Entry points:** every way a user can arrive, such as the nav, a dashboard card, an email link, search or a deep link. Each must land in the right context, with login and return-to working.
 2. **Happy path:** numbered steps showing screen → user action → system response.

@@ -4,7 +4,7 @@ Goal: a short, accurate file that tells any later session who the product is for
 
 ## Steps
 
-1. **Read before asking.** Scan the repo for facts:
+1. **Read before asking.** Run `uxl scan`. It reports the stack, UI folders, roles, every status enum, routes, notification call sites (including commented-out ones), i18n and analytics in about 1,000 tokens. Confirm or extend those facts by reading only the specific files it points to, or ask the `ux-scout` agent. Look for:
    - README and docs
    - the routes or URL config, which show the screens
    - models or schema, especially status and state fields, which show the lifecycles
@@ -13,7 +13,7 @@ Goal: a short, accurate file that tells any later session who the product is for
    - locale files, which show the languages
    - notification and email code, which shows the handoffs
    - analytics, if any
-2. **Draft** `docs/ux/PRODUCT.md` from `templates/PRODUCT.md`. Fill every section you can from the code, and mark inferred items `(assumption)`.
+2. **Draft** `docs/ux/PRODUCT.md` by running `uxl new PRODUCT`, then filling it in. Fill every section you can from the code, and mark inferred items `(assumption)`.
 3. **Ask the user only about the gaps**, and at most about 6 questions in one message. Prioritise:
    - Who are the primary users, and which one matters most?
    - What is the single most important job of the product?

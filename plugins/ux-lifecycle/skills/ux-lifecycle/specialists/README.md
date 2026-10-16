@@ -1,6 +1,6 @@
 # Specialists
 
-These are vetted third-party skills, kept outside `skills/` so they never trigger by themselves. The `ux-lifecycle` phases tell you when to read one: `specialists/<name>/SKILL.md`. Each specialist's own relative paths, such as `references/` or `scripts/`, resolve from its own folder.
+These are vetted third-party skills, kept outside `skills/` so they never trigger by themselves. The `ux-lifecycle` phases say when to use one. Load only what you need: `uxl.py toc <name>`, then `uxl.py section <name> "<heading>"`. Each specialist's own relative paths, such as `references/` or `scripts/`, resolve from its own folder.
 
 ## When to use each
 

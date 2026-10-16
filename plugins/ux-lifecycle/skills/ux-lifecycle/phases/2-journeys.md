@@ -3,12 +3,12 @@
 Goal: see the whole experience across time and roles, so gaps between screens and between people become visible. Most "unfriendly" products fail here, not on individual screens.
 
 **Specialists:**
-- `specialists/journey/SKILL.md` for journey maps and multi-step workflows
-- `specialists/blueprint/SKILL.md` for multi-role, back-office processes and failure modes
+- specialist `journey` for journey maps and multi-step workflows
+- specialist `blueprint` for multi-role, back-office processes and failure modes
 
 ## A. Journey map (one per role and goal)
 
-Use `templates/journey-map.md`. Columns are stages, such as discover → sign up → do the main task → wait → get the outcome → come back. For each stage, record:
+Create it with `uxl new journey-map --name <role-goal>`. Columns are stages, such as discover → sign up → do the main task → wait → get the outcome → come back. For each stage, record:
 - **What the user is doing** and their goal at that moment
 - **Touchpoints**: the screen, email, SMS, notification or offline contact
 - **What they need to know**, and whether the product actually tells them
@@ -20,7 +20,7 @@ Build the map from the real product: walk the routes in code, or click through t
 
 ## B. Lifecycle state machine (for anything with a status)
 
-Applications, orders, tickets, payments and approvals all need one. Use `templates/lifecycle.md`. Document:
+Applications, orders, tickets, payments and approvals all need one. Get the statuses from `uxl scan` (statuses section), then run `uxl new lifecycle --name <object>`. Trace the transitions only in the files the scan points to, or delegate that to `ux-scout`. Document:
 - Every status, with the user-facing name for each one (not the database enum)
 - Every transition: who or what triggers it, conditions, side effects
 - **Who acts next** in each status, and whether they know it. A notification, task list or badge must exist.

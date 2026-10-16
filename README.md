@@ -1,4 +1,4 @@
-# claude-ux-skills
+# claude-uiux-lifecycle-skills
 
 A Claude Code plugin marketplace with one plugin, **`ux-lifecycle`**. It gives Claude a complete, project-independent UX process:
 
@@ -11,7 +11,7 @@ It works in any stack. Project knowledge lives in each project's `docs/ux/PRODUC
 From the project's root:
 
 ```bash
-claude plugin marketplace add atiqursafayat/claude-ux-skills --scope project
+claude plugin marketplace add atiqursafayat/claude-uiux-lifecycle-skills --scope project
 claude plugin install ux-lifecycle@ux-skills --scope project
 ```
 
@@ -38,15 +38,41 @@ claude plugin install accesslint@accesslint --scope project
 
 It also triggers on its own for UX, journey, flow and usability requests.
 
+## Token efficiency
+
+The pack is built to stay cheap:
+
+| What | Cost |
+|---|---|
+| Always-on (skill + agent descriptions) | about 275 tokens per session |
+| Invoking the skill | about 2,100 tokens, then one phase file (400–1,400) at a time |
+| A specialist section via `uxl section` | 100–1,500 tokens, instead of 4,000–8,000 for the whole file |
+
+The helper `scripts/uxl.py` (Python 3, standard library only) does the mechanical work, so Claude doesn't read files to do it:
+
+| Command | Replaces |
+|---|---|
+| `uxl scan` | Exploring the codebase. Returns stack, UI folders, roles, every status enum, routes, notification calls (including commented-out ones), i18n, analytics and tests in about 1,000 tokens. |
+| `uxl lint <paths>` | Reading every template. Static accessibility and UX checks (missing alt or labels, unnamed buttons, clickable divs, removed focus, zoom blocked, vague links…) grouped by rule with `file:line`. |
+| `uxl contrast <fg> <bg>` | Manual WCAG contrast maths |
+| `uxl toc` / `uxl section` | Loading whole specialist skills |
+| `uxl new <template> --name x` | Reading templates and writing skeletons |
+| `uxl shots <url>` | Ad-hoc browser scripts. Viewport JPEGs at 375 and 1280 px, with horizontal scroll and console errors reported as text. Needs `pip install playwright`. |
+
+Bulk fact-gathering can also go to the bundled `ux-scout` agent, which runs on a smaller model and returns only a summary.
+
 ## What's inside
 
 ```
 plugins/ux-lifecycle/skills/ux-lifecycle/
-  SKILL.md        orchestrator: picks the mode and phases, sets the rules
+  SKILL.md        orchestrator: picks the mode and phases, token budget rules
+  scripts/uxl.py  helper CLI (scan, lint, contrast, toc, section, new, shots)
   phases/         0-context … 8-release: method, outputs, exit checks
   templates/      PRODUCT.md, feature brief, interview guide, journey map,
                   lifecycle (state machine), flow spec, usability test, release checklist
   specialists/    vetted third-party skills, loaded only by the phase that needs them
+plugins/ux-lifecycle/agents/ux-scout.md   low-cost fact gatherer (model: haiku)
+tests/            unit tests for uxl.py: python3 -m unittest discover -s tests
 ```
 
 Specialists stay outside `skills/`, so they never auto-trigger, compete or add to every session's context. `specialists/README.md` lists each one with its purpose, source, pinned commit and license:

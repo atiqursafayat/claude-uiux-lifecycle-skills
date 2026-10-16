@@ -2,9 +2,9 @@
 
 Goal: ship safely, then find out whether it worked, and feed what you learn back in.
 
-**Specialist:** `specialists/measure/SKILL.md` for instrumentation and reading results.
+**Specialist:** `measure` for instrumentation and reading results.
 
-## Release checklist (`templates/release-checklist.md`)
+## Release checklist (`uxl new release-checklist --name <feature>`)
 
 - The quality gate report has no open critical or serious findings, or the user has accepted them in writing.
 - Acceptance criteria verified, including the browser test of the main journey (phase 7).

@@ -2,11 +2,11 @@
 
 Goal: agree on what "done" and "successful" mean before building.
 
-**Specialist:** `specialists/measure/SKILL.md` for choosing metrics (HEART, Goal-Signal-Metric) and designing A/B tests.
+**Specialist:** `measure` for choosing metrics (HEART, Goal-Signal-Metric) and designing A/B tests.
 
 ## Steps
 
-1. **Complete the feature brief** (`templates/feature-brief.md`, bottom half):
+1. **Complete the feature brief** (`uxl new feature-brief --name <feature>` if it doesn't exist yet; bottom half):
    - **Scope:** what is in this release and what is explicitly out (non-goals).
    - **Acceptance criteria:** written as user-observable outcomes (Given / When / Then). Include UX criteria, not just function: states covered, accessibility level, copy reviewed, works at 375 px, performance budget.
    - **Success metrics:** one primary metric tied to the job story, such as task completion rate, time to complete, drop-off at a named step, or support tickets about it. Add one or two guardrails, such as error rate or opt-outs. Give each a baseline (or "unknown"), a target, and how it will be measured.

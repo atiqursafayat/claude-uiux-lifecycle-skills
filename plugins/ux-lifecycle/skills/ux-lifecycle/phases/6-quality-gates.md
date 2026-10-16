@@ -1,8 +1,14 @@
 # Phase 6: Quality gates (the bar for "user-friendly")
 
-Run these on whatever was built or named for audit. Report each finding as `file:line` or `screen → element`, with a severity and a concrete fix. Raise the project's own bar from PRODUCT.md wherever it is stricter.
+Run these on whatever was built or named for audit. Start with the tools, then judge what they can't:
+- `uxl lint <paths>` runs static accessibility and UX checks over templates and components, grouped by rule with `file:line`.
+- `uxl contrast <fg> <bg> …` checks the design-system text and background pairs (take them from PRODUCT.md tokens).
+- `uxl shots <url>` reports horizontal scroll and console errors at each width.
+- For a large area, have `ux-scout` run these and return the summary.
 
-For a full audit, run the method in `specialists/evaluate/SKILL.md` (heuristic evaluation plus cognitive walkthrough), then use the gates below as the checklist.
+Then report each finding as `file:line` or `screen → element`, with a severity and a concrete fix. Raise the project's own bar from PRODUCT.md wherever it is stricter.
+
+For a full audit, run the method in specialist `evaluate` (heuristic evaluation plus cognitive walkthrough), then use the gates below as the checklist.
 
 ## Severity
 
@@ -34,11 +40,11 @@ For a full audit, run the method in `specialists/evaluate/SKILL.md` (heuristic e
 - `prefers-reduced-motion` respected; nothing flashes; no timeouts without warning and a way to extend.
 - Images have meaningful alt text, or empty alt if decorative.
 
-Read `specialists/include/SKILL.md` for the method. If the AccessLint plugin is installed, run `accesslint:accessibility-scan` on the live pages. Automated tools catch only part of the problems, so also do the keyboard and zoom checks by hand.
+Read specialist `include` for the method. If the AccessLint plugin is installed, run `accesslint:accessibility-scan` on the live pages. Automated tools catch only part of the problems, so also do the keyboard and zoom checks by hand.
 
 ## Gate 3: States and robustness
 
-Every screen in the flow spec's state inventory exists and is designed (method: `specialists/fortify/SKILL.md`):
+Every screen in the flow spec's state inventory exists and is designed (method: specialist `fortify`):
 - empty, loading (skeleton or spinner within 1 s), error, success, partial and permission-denied
 - long text and long lists
 - zero, one and many items
@@ -46,7 +52,7 @@ Every screen in the flow spec's state inventory exists and is designed (method: 
 
 ## Gate 4: Content and UX writing
 
-Read `specialists/articulate/SKILL.md` for the method. In short:
+Read specialist `articulate` for the method. In short:
 - Use sentence case and plain words, front-load the meaning, and keep each sentence to one idea.
 - Buttons say what happens ("Submit application", not "OK"), and the same action keeps the same name throughout the flow.
 - Errors don't blame or apologise; they say what to do.
@@ -57,7 +63,7 @@ Read `specialists/articulate/SKILL.md` for the method. In short:
 
 - Pages are usable quickly on the slowest device and network in PRODUCT.md. Images are sized and lazy-loaded, and the critical path has no heavy scripts.
 - Mobile-first: the primary tasks are comfortable at 375 px.
-- Internationalisation, if the product is multilingual (method: `specialists/localize/SKILL.md`):
+- Internationalisation, if the product is multilingual (method: specialist `localize`):
   - no text baked into images
   - layouts survive longer translations (+30–40%)
   - fonts support every script in use
@@ -71,7 +77,7 @@ Read `specialists/articulate/SKILL.md` for the method. In short:
 
 ## Gate 7: Visual design review
 
-Use the visual engine chosen in `phases/5-screens.md`, and run `specialists/web-design-guidelines/SKILL.md` on the changed UI code. Check:
+Use the visual engine chosen in `phases/5-screens.md`, and run specialist `web-design-guidelines` on the changed UI code. Check:
 - hierarchy, spacing rhythm and alignment
 - consistency with the design system
 - no generic "AI-made" patterns
